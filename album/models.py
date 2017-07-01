@@ -4,4 +4,8 @@ from django.db import models
 
 class Photo(models.Model):
     user = models.ForeignKey(User)
-    photo = models.FileField
+    image = models.ImageField(upload_to='media/photos')
+    creation_date = models.DateTimeField(auto_now_add=True)
+    fav = models.ManyToManyField(User, related_name='fav')
+
+

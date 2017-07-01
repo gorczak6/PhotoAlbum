@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Lista zdjęć
+{% endblock%}
+
+{% block content %}
+
+        {% for photo in photos %}
+        <div>
+            <img src="{{ photo.image.url }}" width="300">
+            <p>Autor: {{ photo.user.username }}</p>
+            <p>Polubień: {{ photo.fav.count }}</p>
+            <a href="fav_photo/{{ photo.id }}">Polub</a>
+            <a href="unfav_photo/{{ photo.id }}">Odlub</a>
+        </div>
+        {% endfor %}
+
+{% endblock%}
